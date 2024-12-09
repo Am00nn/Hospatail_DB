@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Hospital_project.Models
 {
@@ -15,5 +16,9 @@ namespace Hospital_project.Models
 
         [Required]
         public string P_Gender { get; set; }
+
+
+        [JsonIgnore]
+        public ICollection<Booking>? Bookings { get; set; }
     }
 }
