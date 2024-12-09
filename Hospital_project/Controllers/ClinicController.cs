@@ -23,10 +23,24 @@ namespace Hospital_project.Controllers
         }
 
         [HttpPost("AddClinic")]
-        public IActionResult AddClinic([FromBody] Clinic clinic)
-        {
-            clinic.NumberOfSlots = 20; 
+        public IActionResult AddClinic(
+            [FromQuery] string c_Name,
 
+            [FromQuery] string c_Specialization,
+
+            [FromQuery] int numberOfSlots = 20)
+        {
+          
+            var clinic = new Clinic
+            {
+                C_Name = c_Name,
+
+                C_Specialization = c_Specialization,
+
+                NumberOfSlots = numberOfSlots
+            };
+
+           
             _clinicService.AddClinic(clinic);
 
             return Ok("Clinic added successfully");

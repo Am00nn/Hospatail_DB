@@ -7,6 +7,7 @@ namespace Hospital_project.Services
     {
         private readonly IPatientRepository _patientRepository;
 
+
         private readonly IBookingRepository _bookingRepository;
 
         public PatientService(IPatientRepository patientRepository, IBookingRepository bookingRepository)
@@ -21,6 +22,13 @@ namespace Hospital_project.Services
         {
 
             _patientRepository.AddPatient(patient); 
+
+        }
+
+        public IEnumerable<Patient> GetAllPatients()
+        {
+
+            return _patientRepository.GetPatients();
 
         }
 
