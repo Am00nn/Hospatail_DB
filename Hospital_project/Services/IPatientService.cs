@@ -6,5 +6,7 @@ namespace Hospital_project.Services
     {
         void AddPatient(Patient patient);
         IEnumerable<Booking> GetPatientAppointments(int patientId);
+        IEnumerable<Patient> GetAllPatients();
+
     }
 }
